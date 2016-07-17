@@ -7,16 +7,17 @@ import * as pageActions from '../actions/PageActions'
 
 class App extends Component {
     render() {
-        const { user, page } = this.props;
-        const { setYear } = this.props.pageActions;
-        return <div>
+        const { user, page } = this.props
+        const { setYear } = this.props.pageActions
+
+        return <div className='row'>
+            <Page photos={page.photos} year={page.year} setYear={setYear} />
             <User name={user.name} />
-            <Page photos={page.photos} year={page.year} setYear={setYear}/>
         </div>
     }
 }
 
-function mapStateToProps (state) {
+function mapStateToProps(state) {
     return {
         user: state.user,
         page: state.page
